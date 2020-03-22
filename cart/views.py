@@ -11,7 +11,6 @@ def add_to_cart(request, id):
     quantity = int(request.POST.get('quantity'))
 
     cart = request.session.get('cart', {})
-    # cart[id] = cart.get(id, quantity)
     if id in cart:
         cart[id] = int(cart[id]) + quantity      
     else:
@@ -26,6 +25,7 @@ def adjust_cart(request, id):
     Adjust the quantity of the specified product to the specified
     amount
     """
+    print(request.POST)
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
